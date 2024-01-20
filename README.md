@@ -1,5 +1,5 @@
-# Hands-On-Infrastructure-Automation-with-Puppet-6-V-
-Hands-On Infrastructure Automation with Puppet 6 (V), published by Packt 
+# Hands-On-Infrastructure-Automation-with-Puppet-8-V-
+Based on the course "Hands On Infrastructure Automation with Puppet 6" from Packt Publishing.
 
 ## [Section 1: Getting Started with Puppet](section1)
 
