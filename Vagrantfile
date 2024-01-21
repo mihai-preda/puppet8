@@ -2,7 +2,7 @@
 # vi: set ft=ruby :
 
 $rhel = <<EOF
-yum install -y https://yum.puppet.com/puppet8-release-el-9.noarch.rpm
+yum install -y https://yum.puppet.com/puppet8-release-el-8.noarch.rpm
 yum install -y puppet-agent
 yum install -y rubygems
 EOF
@@ -40,7 +40,7 @@ Vagrant.configure("2") do |config|
   config.hostmanager.manage_guest = true
 
   config.vm.define "ol" do |ol|
-    ol.vm.box = "bento/oracle-9.2"
+    ol.vm.box = "oraclelinux/8"
     ol.vm.provision "shell", inline: $rhel
     ol.vm.hostname = "ol.example.com"
     ol.vm.network "private_network", ip: "10.11.1.10",
@@ -66,7 +66,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "testnode" do |testnode|
-    testnode.vm.box = "bento/oracle-9.2"
+    testnode.vm.box = "oraclelinux/8"
     testnode.vm.provision "shell", inline: $rhel
     testnode.vm.hostname = "testnode.example.com"
     testnode.vm.network "private_network", ip: "10.11.1.20",
@@ -74,7 +74,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "puppet" do |puppet|
-    puppet.vm.box = "bento/oracle-9.2"
+    puppet.vm.box = "oraclelinux/8"
     puppet.vm.provision "shell", inline: $rhel
     puppet.vm.provision "puppet" do |puppet|
       puppet.manifests_path = "install/manifests"
@@ -85,7 +85,7 @@ Vagrant.configure("2") do |config|
     puppet.vm.network "private_network", ip: "10.11.1.100",
       virtualbox__intnet: "puppet"
     puppet.vm.provider "virtualbox" do |v|
-      v.memory = 3000
+      v.memory = 4096
     end
   end
 end
