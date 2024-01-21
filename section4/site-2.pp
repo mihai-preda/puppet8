@@ -1,4 +1,4 @@
-concat {'/etc/motd': }
+concat { '/etc/motd': }
 
 package { 'epel-release':
   ensure => 'installed',
@@ -8,14 +8,14 @@ package { 'figlet':
   ensure => 'installed',
 }
 
-exec {'motd.hostname':
+exec { 'motd.hostname':
   path    => '/bin:/usr/bin',
-  command => "figlet $hostname >/etc/motd.hostname",
+  command => "figlet ${hostname} >/etc/motd.hostname",
   creates => '/etc/motd.hostname',
   require => Package['figlet'],
 }
 
-exec {'motd.warning':
+exec { 'motd.warning':
   path    => '/bin:/usr/bin',
   command => "figlet '* WARNING *'>/etc/motd.warning",
   creates => '/etc/motd.warning',
@@ -30,9 +30,9 @@ concat::fragment { 'hostname':
 }
 
 concat::fragment { 'info':
-  target => '/etc/motd',
+  target  => '/etc/motd',
   content => "${fact('os.name')} ${fact('os.release.major')}\n",
-  order => '05',
+  order   => '05',
 }
 
 $disclaimer = @(END)

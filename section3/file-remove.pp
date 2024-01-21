@@ -1,3 +1,3 @@
-file {'/var/www/html/index.html':
+file { '/var/www/html/index.html':
   ensure  => 'absent',
 }

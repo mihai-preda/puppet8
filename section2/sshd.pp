@@ -1,4 +1,4 @@
-service {'sshd':
+service { 'sshd':
   ensure => true,
   enable => true,
 }

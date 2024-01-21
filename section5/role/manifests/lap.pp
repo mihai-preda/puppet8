@@ -1,11 +1,10 @@
 # role::lap
 # Linux Apache PHP
 class role::lap (
-  String[1] $webhost        = $::hostname,
+  String[1] $webhost        = $facts['networking']['hostname'],
   Stdlib::Port $port        = 80,
   Stdlib::Unixpath $docroot = "/var/www/${webhost}",
 ) {
-
   class { 'profile::apache':
     webhost => $webhost,
     port    => $port,

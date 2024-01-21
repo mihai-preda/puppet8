@@ -1,4 +1,4 @@
 service { 'httpd':
   ensure => true,
-  enable => true
+  enable => true,
 }

@@ -1,5 +1,5 @@
-package {'httpd':
-  ensure => true
+package { 'httpd':
+  ensure => true,
 }
 
 service { 'httpd':

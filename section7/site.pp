@@ -1,6 +1,6 @@
-node puppet {
+node 'puppet' {
 }
 node default {
   lookup('classes', Array[String], 'unique').include
-  include $::role
+  include $facts['role']
 }

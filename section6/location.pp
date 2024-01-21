@@ -1,1 +1,1 @@
-notify{"${publication['location']}":}
+notify { $publication['location']: }

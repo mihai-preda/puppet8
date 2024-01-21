@@ -1,7 +1,7 @@
 # role::apache
 # install apache webserver with a single vhost
 class role::apache (
-  String[1] $webhost        = $::hostname,
+  String[1] $webhost        = $facts['networking']['hostname'],
   Stdlib::Port $port        = 80,
   Stdlib::Unixpath $docroot = "/var/www/${webhost}",
 ) {

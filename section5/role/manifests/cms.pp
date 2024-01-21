@@ -1,14 +1,13 @@
 # role::cms
 # install a CMS
 class role::cms (
-  String[1] $webhost        = $::hostname,
+  String[1] $webhost        = $facts['networking']['hostname'],
   Stdlib::Port $port        = 80,
   Stdlib::Unixpath $docroot = "/var/www/${webhost}",
   String[1] $username       = 'username',
   String[1] $password       = 'password',
   String[1] $database       = 'database',
 ) {
-
   class { 'profile::apache':
     webhost => $webhost,
     port    => $port,
@@ -20,7 +19,7 @@ class role::cms (
 
   class { 'profile::mysql': }
 
-  class { 'profile::wordpress': 
+  class { 'profile::wordpress':
     docroot  => $docroot,
     username => $username,
     password => $password,

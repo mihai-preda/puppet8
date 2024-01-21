@@ -1,3 +1,3 @@
-package {'httpd':
+package { 'httpd':
   ensure => false,
 }
