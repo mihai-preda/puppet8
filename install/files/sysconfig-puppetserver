@@ -1,3 +1,6 @@
+#THIS BREAKS PUPPET SERVER /DISABLE IT
+# LET PUPPET INSTALLED FROM REPOS AND IT WILL CREATE THIS CONFIG AUTO
+# AND BETTER
 ###########################################
 # Init settings for puppetserver
 ###########################################
