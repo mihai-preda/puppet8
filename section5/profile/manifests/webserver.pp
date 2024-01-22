@@ -5,7 +5,6 @@ class profile::webserver (
   Stdlib::Port $port,
   Stdlib::Unixpath $docroot,
 ) {
-
   include apache
 
   apache::vhost { $webhost:

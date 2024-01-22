@@ -1,5 +1,5 @@
 # oracle renames EPEL to oracle-epel
-# fat host name is not present in PP8. It's actually Host (stdlib)
+# fact host name is not present in PP8. It's actually Host (stdlib)
 concat { '/etc/motd': }
 
 package { 'oracle-epel-release-el8':
