@@ -10,6 +10,7 @@ service { 'httpd':
 
 file { 'index.html':
   ensure  => 'file',
-  content => epp('hello.epp'),
+  path    => '/var/www/html/index.html',
+  content => epp('/home/vagrant/puppet8/section3/hello.epp'),
   require => Package['httpd'],
 }
