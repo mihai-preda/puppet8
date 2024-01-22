@@ -1,16 +1,19 @@
+# oracle renames EPEL to oracle-epel
+# fat host name is not present in PP8. It's actually Host (stdlib)
 concat { '/etc/motd': }
 
-package { 'epel-release':
+package { 'oracle-epel-release-el8':
   ensure => 'installed',
 }
 
 package { 'figlet':
-  ensure => 'installed',
+  ensure  => 'installed',
+  require => Package['oracle-epel-release-el8'],
 }
 
 exec { 'motd.hostname':
   path    => '/bin:/usr/bin',
-  command => "figlet ${hostname} >/etc/motd.hostname",
+  command => "figlet ${Host} >/etc/motd.hostname",
   creates => '/etc/motd.hostname',
   require => Package['figlet'],
 }
