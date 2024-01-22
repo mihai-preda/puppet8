@@ -4,7 +4,7 @@ package { 'httpd':
 
 service { 'httpd':
   ensure  => true,
-  enable  => true
+  enable  => true,
   require => [Package['httpd'],File['index.html']],
 }
 
