@@ -53,7 +53,7 @@ Vagrant.configure("2") do |config|
     ubuntu.vm.provision "shell", inline: $ubuntu
     ubuntu.vm.hostname = "ubuntu.example.com"
     ubuntu.vm.network "forwarded_port", guest: 80, host: 8080
-    ubuntu.vm.network "private_network", ip: "10.11.1.200",
+    ubuntu.vm.network "private_network", ip: "10.11.1.21",
       virtualbox__intnet: "puppet"
   end
 
@@ -82,7 +82,7 @@ Vagrant.configure("2") do |config|
     end
     puppet.vm.hostname = "puppet.example.com"
     puppet.hostmanager.aliases = %w(puppet puppetserver.example.com)
-    puppet.vm.network "private_network", ip: "10.11.1.100",
+    puppet.vm.network "private_network", ip: "10.11.1.11",
       virtualbox__intnet: "puppet"
     puppet.vm.provider "virtualbox" do |v|
       v.memory = 4096
