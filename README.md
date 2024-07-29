@@ -16,3 +16,6 @@ Based on the course "Hands On Infrastructure Automation with Puppet 6" from Pack
 ## [Section 7: Puppet Lookup](section 7)
 
 ## [Conclusion / Summary](summary)
+
+Create a local dev env by installing Vagrant, Virtual Box, git, and VSCode.
+Use "vagrant plugin install vagrant-hostmanager" and vagrant-vbguest.
