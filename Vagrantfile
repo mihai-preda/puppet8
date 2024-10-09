@@ -40,7 +40,7 @@ Vagrant.configure("2") do |config|
   config.hostmanager.manage_guest = true
 
   config.vm.define "ol" do |ol|
-    ol.vm.box = "bento/oraclelinux-9 "
+    ol.vm.box = "bento/oraclelinux-9"
     ol.vm.provision "shell", inline: $rhel
     ol.vm.hostname = "ol.example.com"
     ol.vm.network "private_network", ip: "10.11.1.10",
@@ -74,7 +74,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "puppet" do |puppet|
-    puppet.vm.box = "bento/oraclelinux-9 "
+    puppet.vm.box = "bento/oraclelinux-9"
     puppet.vm.provision "shell", inline: $rhel
     puppet.vm.provision "puppet" do |puppet|
       puppet.manifests_path = "install/manifests"
