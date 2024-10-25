@@ -40,6 +40,7 @@ Vagrant.configure("2") do |config|
   config.hostmanager.manage_guest = true
 
   config.vm.define "ol" do |ol|
+    ol.vm.box_url = "https://oracle.github.io/vagrant-projects/boxes/oraclelinux/9.json"
     ol.vm.box = "oraclelinux/9"
     ol.vm.provision "shell", inline: $rhel
     ol.vm.hostname = "ol.example.com"
@@ -66,6 +67,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "testnode" do |testnode|
+    testnode.vm.box_url = "https://oracle.github.io/vagrant-projects/boxes/oraclelinux/9.json"
     testnode.vm.box = "oraclelinux/9 "
     testnode.vm.provision "shell", inline: $rhel
     testnode.vm.hostname = "testnode.example.com"
@@ -74,6 +76,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "puppet" do |puppet|
+    puppet.vm.box_url = "https://oracle.github.io/vagrant-projects/boxes/oraclelinux/9.json"
     puppet.vm.box = "oraclelinux/9"
     puppet.vm.provision "shell", inline: $rhel
     puppet.vm.provision "puppet" do |puppet|
