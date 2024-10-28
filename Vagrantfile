@@ -88,7 +88,7 @@ Vagrant.configure("2") do |config|
     puppet.vm.network "private_network", ip: "10.11.1.11",
       virtualbox__intnet: "puppet"
     puppet.vm.provider "virtualbox" do |v|
-      v.memory = 4096
+      v.memory = 3072
     end
   end
 end
