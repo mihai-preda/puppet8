@@ -18,15 +18,6 @@ if [ $? -ne 0 ]; then
 fi
 EOF
 
-$ubuntu = <<EOF
-dpkg -s puppet-agent >/dev/null
-if [ $? -ne 0 ]; then
-  wget http://apt.puppet.com/puppet8-release-jammy.deb
-  dpkg -i puppet8-release-jammy.deb
-  apt-get update
-  apt-get install -y puppet-agent
-fi
-EOF
 $git = <<EOF
 dpkg -s puppet-agent >/dev/null
 if [ $? -ne 0 ]; then
@@ -47,13 +38,13 @@ Vagrant.configure("2") do |config|
     ol.vm.network "private_network", ip: "10.12.1.10", netmask: "255.255.255.0"
   end
 
-  config.vm.define "ubuntu" do |ubuntu|
-    ubuntu.vm.box = "bento/ubuntu-22.04"
-    ubuntu.vbguest.auto_update = false
-    ubuntu.vm.provision "shell", inline: $ubuntu
-    ubuntu.vm.hostname = "ubuntu.example.com"
-    ubuntu.vm.network "forwarded_port", guest: 80, host: 8080
-    ubuntu.vm.network "private_network", ip: "10.12.1.21", netmask: "255.255.255.0"
+  config.vm.define "websrv" do |websrv|
+    websrv.vm.box = "bento/oracle-9"
+    websrv.vbguest.auto_update = false
+    websrv.vm.provision "shell", inline: $rhel
+    websrv.vm.hostname = "websrv.example.com"
+    websrv.vm.network "forwarded_port", guest: 80, host: 8080
+    websrv.vm.network "private_network", ip: "10.12.1.21", netmask: "255.255.255.0"
   end
 
   config.vm.define "git" do |git|
@@ -81,7 +72,7 @@ Vagrant.configure("2") do |config|
     puppet.hostmanager.aliases = %w(puppet puppetserver.example.com)
     puppet.vm.network "private_network", ip: "10.12.1.11", netmask: "255.255.255.0"
       
-    puppet.vm.provider "virtualbox" do |v|
+    puppet.vm.provider "vmware_desktop" do |v|
       v.memory = 3072
     end
   end

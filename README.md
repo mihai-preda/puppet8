@@ -17,5 +17,7 @@ Based on the course "Hands On Infrastructure Automation with Puppet 6" from Pack
 
 ## [Conclusion / Summary](summary)
 
-Create a local dev env by installing Vagrant, Virtual Box, git, and VSCode.
+Create a local dev env by installing Vagrant, WMware Workstation Pro (free for personal use), git, and VSCode.
 Use "vagrant plugin install vagrant-hostmanager" and vagrant-vbguest.
+Switched from Virtual Box which fails to create private network, and is also buggy and slow causing vagrant up
+to time out if the process takes too long. I assume delays are caused by the bugginess of VB.
