@@ -6,6 +6,7 @@ yum update -y
 yum install -y https://yum.puppet.com/puppet8-release-el-9.noarch.rpm
 yum install -y puppet-agent
 yum install -y rubygems
+yum install -y git
 EOF
 
 $debian = <<EOF
@@ -71,7 +72,6 @@ Vagrant.configure("2") do |config|
     puppet.vm.hostname = "puppet.example.com"
     puppet.hostmanager.aliases = %w(puppet puppetserver.example.com)
     puppet.vm.network "private_network", ip: "10.12.1.11", netmask: "255.255.255.0"
-      
     puppet.vm.provider "vmware_desktop" do |v|
       v.memory = 3072
     end
