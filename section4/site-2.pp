@@ -2,13 +2,13 @@
 # fact host name is not present in PP8. It's actually Host (stdlib)
 concat { '/etc/motd': }
 
-package { 'oracle-epel-release':
+package { 'oracle-epel-release-el9':
   ensure => 'installed',
 }
 
 package { 'figlet':
   ensure  => 'installed',
-  require => Package['oracle-epel-release'],
+  require => Package['oracle-epel-release-el9'],
 }
 
 exec { 'motd.hostname':
