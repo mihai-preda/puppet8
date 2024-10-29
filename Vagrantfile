@@ -41,7 +41,6 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "websrv" do |websrv|
     websrv.vm.box = "bento/oracle-9"
-    websrv.vbguest.auto_update = false
     websrv.vm.provision "shell", inline: $rhel
     websrv.vm.hostname = "websrv.example.com"
     websrv.vm.network "forwarded_port", guest: 80, host: 8080
