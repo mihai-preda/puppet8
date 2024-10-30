@@ -6,7 +6,7 @@ yum update -y
 yum install -y https://yum.puppet.com/puppet8-release-el-9.noarch.rpm
 yum install -y puppet-agent
 yum install -y rubygems
-yum install -y git
+yum install -y git vim
 EOF
 
 $debian = <<EOF
