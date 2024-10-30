@@ -1,3 +1,3 @@
 package { 'httpd':
-  ensure => '2.4.6-88',
+  ensure => '2.4.57',
 }
