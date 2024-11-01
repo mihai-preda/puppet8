@@ -1,10 +1,9 @@
 class profile::php {
   class { 'php':
     extensions => {
-      mysql => {},
+      mysql  => {},
       mysqli => {},
-    }
+    },
   }
   include apache::mod::php
-  
 }

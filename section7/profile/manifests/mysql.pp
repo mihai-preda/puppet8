@@ -4,8 +4,7 @@ class profile::mysql (
   String[1] $hostname = 'localhost',
   String[1] $database = 'database',
 ) {
-
-  class { '::mysql::server':
+  class { 'mysql::server':
     root_password           => 'verygoodpassword',
     remove_default_accounts => true,
     restart                 => true,
@@ -15,6 +14,5 @@ class profile::mysql (
     password => $password,
     host     => $hostname,
     grant    => ['SELECT', 'CREATE', 'INSERT', 'UPDATE'],
-}
-
+  }
 }
