@@ -11,10 +11,10 @@ package { 'figlet':
   require => Package['oracle-epel-release-el9'],
 }
 
-exec { 'motd.hostname':
+exec { 'motd.host':
   path    => '/bin:/usr/bin',
-  command => "figlet ${Host} >/etc/motd.hostname",
-  creates => '/etc/motd.hostname',
+  command => "figlet ${Host} >/etc/motd.host",
+  creates => '/etc/motd.host',
   require => Package['figlet'],
 }
 
@@ -25,11 +25,11 @@ exec { 'motd.warning':
   require => Package['figlet'],
 }
 
-concat::fragment { 'hostname':
+concat::fragment { 'host':
   target  => '/etc/motd',
-  source  => '/etc/motd.hostname',
+  source  => '/etc/motd.host',
   order   => '01',
-  require => Exec['motd.hostname'],
+  require => Exec['motd.host'],
 }
 
 concat::fragment { 'info':
