@@ -13,7 +13,7 @@ package { 'figlet':
 
 exec { 'motd.hostname':
   path    => '/bin:/usr/bin',
-  command => "figlet ${hostname} >/etc/motd.hostname",
+  command => "figlet $hostname >/etc/motd.hostname",
   creates => '/etc/motd.hostname',
   require => Package['figlet'],
 }
