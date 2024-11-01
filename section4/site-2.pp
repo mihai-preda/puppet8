@@ -1,5 +1,5 @@
 # oracle renames EPEL to oracle-epel
-# fact host name is not present in PP8. It's actually Host (stdlib)
+
 concat { '/etc/motd': }
 
 package { 'oracle-epel-release-el9':
@@ -11,10 +11,10 @@ package { 'figlet':
   require => Package['oracle-epel-release-el9'],
 }
 
-exec { 'motd.host':
+exec { 'motd.hostname':
   path    => '/bin:/usr/bin',
-  command => "figlet ${Host} >/etc/motd.host",
-  creates => '/etc/motd.host',
+  command => "figlet ${hostname} >/etc/motd.hostname",
+  creates => '/etc/motd.hostname',
   require => Package['figlet'],
 }
 
@@ -25,11 +25,11 @@ exec { 'motd.warning':
   require => Package['figlet'],
 }
 
-concat::fragment { 'host':
+concat::fragment { 'hostname':
   target  => '/etc/motd',
-  source  => '/etc/motd.host',
+  source  => '/etc/motd.hostname',
   order   => '01',
-  require => Exec['motd.host'],
+  require => Exec['motd.hostname'],
 }
 
 concat::fragment { 'info':
