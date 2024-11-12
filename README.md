@@ -27,4 +27,4 @@ Create a local dev env by installing Vagrant, WMware Workstation Pro (free for p
 ###  Footnote [^1]
 [^1]: Switched from *Virtual Box* which fails to create networks, and is buggy and slow causing vagrant up
 to time out if the process takes too long. I assume delays are caused by the bugginess of VB.
-[^1]: Do not use winget or linux repos to update vagrant because it breaks the environment.
+Do not update Vagrant automatically because it breaks the env. Wait for bugs to be fixed.
