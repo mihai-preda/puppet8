@@ -25,5 +25,5 @@ Create a local dev env by installing Vagrant, WMware Workstation Pro (free for p
   - vagrant plugin install vagrant-hostmanager
   - vagrant plugin install vagrant-vmware-desktop
 ###  Footnote [^1]
-[^1]: Switched from Virtual Box which fails to create networks, and is buggy and slow causing vagrant up
+[^1]: Switched from *Virtual Box* which fails to create networks, and is buggy and slow causing vagrant up
 to time out if the process takes too long. I assume delays are caused by the bugginess of VB.
